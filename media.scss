@@ -1,0 +1,22 @@
+.hide-on-phone {
+	@include media(">=phone") {
+		display: none;
+	}
+}
+.hide-on-tablet {
+	@include media(">=tablet") {
+		display: none;
+	}
+}
+.hide-on-desktop {
+	@include media(">=desktop") {
+		display: none;
+	}
+}
+
+.show-on-desktop {
+	display: none;
+	@include media(">=desktop") {
+		display: inherit;
+	}
+}

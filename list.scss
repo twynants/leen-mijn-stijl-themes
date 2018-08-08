@@ -1,0 +1,108 @@
+// TABLE LIST
+
+
+.table-list {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 2rem 0 0;
+    padding: 0;
+    .row {
+        align-items: center;
+        border-bottom: $border;
+        display: flex;
+        flex-flow: row nowrap;
+        list-style-type: none;
+        &:first-child {
+        	border-top: $border;
+        }
+        > * {
+            flex: 1;
+            flex-basis: 0;
+        	padding: 0.5rem 0;
+        	&:first-child {
+        		padding-left: 0.5rem;
+        	}
+        	&:last-child {
+        		padding-right: 0.5rem;
+        	}
+        }
+        &.title {
+            text-transform: uppercase;
+            > span {
+                color: $alpha-text-light;
+                letter-spacing: 1px;
+            }
+        }
+        &:not(.title) {
+            background-color: $beta-color;
+            cursor: pointer;
+            margin-bottom: 0.125rem;
+            padding: 0rem;
+            transition: $box-shadow-transition;
+            &:hover {
+                border-color: $alpha-border;
+                box-shadow: $box-shadow-zero;
+            }
+            &.active {
+                box-shadow: $box-shadow-one;
+                border: 1px solid rgba($primary-color, 0.6); // opacity version of font/color/secondary
+            }
+            &.disabled {
+                opacity: 0.7;
+            }
+            > .has-icon {
+            	align-items: center;
+            	display: flex;
+            	flex-flow: row nowrap;
+            	.icon {
+            		font-size: 1.4rem;
+            		margin-right: 0.5rem;
+            	}
+            }
+            .actions {
+            	flex: none;
+            	&.full {
+            		padding: 0;
+            		> * {
+            			width: 100%;
+            		}
+            	}
+            }
+            button, .button {
+                margin: 0;
+            }
+        }
+        .action, .actions {
+            flex-grow: 0;
+            flex-basis: auto;
+        }
+    }
+}
+
+.table-list-heading.neo {
+	align-items: center;
+	display: flex;
+	flex-flow: row nowrap;
+	margin-top: 2rem;
+	+ .table-list.neo {
+		margin-top: 0;
+	}
+}
+
+
+// QUESTIONS LIST
+
+.questions-list {
+	padding: 0 0 0 1.5rem;
+	.questions-list-item {
+		margin: 1rem 0;
+		.content {
+			align-items: center;
+			display: flex;
+			flex-flow: row nowrap;
+			.actions {
+				margin-left: auto;
+			}
+		}
+	}
+}

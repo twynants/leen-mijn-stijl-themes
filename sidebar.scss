@@ -1,0 +1,170 @@
+$actions-neo-color: $alpha-color !default;
+$actions-neo-contrast: $alpha-contrast !default;
+
+$actions-neo-width: 20rem;
+$actions-neo-height: 4.375rem;
+
+
+.sidebar-header.neo {
+	background-color: $actions-neo-color;
+	border-right: $border;
+	color: $actions-neo-contrast;
+	display: flex;
+	flex-direction: column;
+	height: 20vh;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	max-width: $actions-neo-width;
+	@include media("<=phone") {
+		border-right: none;
+		border-top: $border;
+		height: $actions-neo-height;
+		flex-direction: row;
+		justify-content: space-between;
+		max-width: none;
+	}
+	.logo {
+		background-image: url("../../resources/images/logo.png");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		height: 4rem;
+		margin: 2rem 0 4rem;
+		width: 100%;
+		@include media("<=phone") {
+			display: none;
+		}
+	}
+}
+
+.sidebar-footer.neo {
+	background-color: $actions-neo-color;
+	border-right: $border;
+	color: $actions-neo-contrast;
+	display: flex;
+	flex-direction: column;
+	height: 30vh;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	max-width: $actions-neo-width;
+	@include media("<=phone") {
+		border-right: none;
+		border-top: $border;
+		height: $actions-neo-height;
+		flex-direction: row;
+		justify-content: space-between;
+		max-width: none;
+	}
+	.moover-info {
+		@include media("<=phone") {
+			display: none;
+		}
+		.content {
+			padding: 2rem 0 1rem 4.5rem;
+		}
+		.moover-logo {
+			background-image: url("../../resources/images/moover.png");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			height: 11rem;
+			margin: 0 3rem;
+			width: auto;
+		}
+	}
+}
+
+.page-actions.neo {
+	background-color: $actions-neo-color;
+	border-right: $border;
+	color: $actions-neo-contrast;
+	display: flex;
+	flex-direction: column;
+	height: 50vh;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	max-width: $actions-neo-width;
+	li {
+		padding: 0 0 0 3.75rem;
+		&:last-of-type {
+			.page-action-entry {
+				border-bottom: $border;
+			}
+		}
+		&.is-active, &:hover {
+			background-color: $primary-color;
+			.page-action-entry {
+				border: none;
+				color: $primary-contrast;
+				.icon {
+					color: $primary-contrast;
+				}
+			}
+			& + li {
+				.page-action-entry {
+					border-top: none;
+				}
+			}
+		}
+		&:hover:not(.is-active) {
+			background-color: lighten($primary-color, 10%);
+		}
+		@include media("<=phone") {
+			flex: 1;
+			height: $actions-neo-height;
+			padding: 0.875rem;
+			.page-action-entry {
+				border: none !important;
+			}
+		}
+		.page-action-entry {
+			align-items: center;
+			border-top: $border;
+			color: $actions-neo-contrast;
+			display: flex;
+			flex-flow: row nowrap;
+			font-weight: 500;
+			line-height: 1.25;
+			padding: 1rem 0.5rem;
+			text-align: center;
+			text-decoration: none;
+			.icon {
+				color: $primary-color;
+				display: block;
+				height: 2rem;
+				margin-right: 1.5rem;
+				width: 2rem;
+				&:before {
+					font-size: 1.8rem;
+				}
+			}
+			@include media("<=phone") {
+				font-size: 0.8rem;
+				flex-direction: column;
+				padding: 0;
+				.icon {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+.page-cell.neo {
+	max-width: $actions-neo-width;
+	@include media("<=phone") {
+		height: $actions-neo-height;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100vw;
+		max-width: none;
+		z-index: 1000;
+		+ .page-cell {
+			margin-bottom: $actions-neo-height;
+		}
+	}
+}

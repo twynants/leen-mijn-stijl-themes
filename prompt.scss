@@ -1,0 +1,31 @@
+.n-prompt {
+	.n-prompt-container {
+		background-color: $body-color;
+		padding: 1rem 2rem;
+		position: relative;
+		.close {
+			cursor: pointer;
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			&:before {
+				font-size: 1.6rem;
+			}
+			&:hover {
+				// TODO - color property
+			}
+		}
+		.title {
+			margin-top: 1rem;
+		}
+		.actions {
+			margin: 2rem 0 0 0;
+			button, .button {
+				margin-bottom: 0.5rem;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}

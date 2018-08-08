@@ -1,0 +1,153 @@
+input, textarea, select {
+	box-shadow: none;
+	border-radius: 0;
+	background-color: $beta-color;
+	border: $beta-border solid 1px;
+	color: $beta-contrast;
+	font-family: $font-family;
+	font-size: 1rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	padding: 0.8rem 0.6rem;
+	&::focus {
+		@include box-shadow;
+	}
+}
+
+.n-form-text, .n-input-combo .n-input-combo-input-container {
+	input {
+		height: 2.5rem !important;
+		line-height: 2.5rem !important;
+	}
+}
+
+// TODO : fix in definition file
+.n-input-combo .n-input-combo-input-container .fa {
+	top: 50% !important;
+	transform: translateY(-50%);
+}
+
+// TODO : fix in definition file
+.n-form-switch.n-form-checkbox label.n-form-label {
+	background-color: transparent !important;
+	&:before {
+		border-radius: 2rem;
+	}
+	&:after {
+		border-radius: 50%;
+	}
+}
+
+
+// NEO FORM 
+
+.n-form.neo {
+	.n-form-section {
+		.n-form-component {
+			display: inline-block;
+			margin: 0.5rem 0;
+			width: 100%;
+			&.half {
+				width: calc(50% - 10px);
+				&:nth-child(odd) {
+					margin-right: 7px;
+				}
+				&:nth-child(even) {
+					margin-left: 7px;
+				}
+			}
+			.n-form-label {
+				display: block;
+				font-size: 0.85rem;
+			}
+			.field {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+	.actions {
+		align-items: center;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-end;
+		@include media("<=phone") {
+			button, .button {
+				width: 100%;
+			}
+		}
+	}
+}
+
+
+// CMS FORM
+
+.nabu-cms {
+	@extend .card;
+	.n-form {
+		@extend .neo;
+	}
+}
+
+
+// CAMPAIGN FORM 
+
+.campaign-form {
+	.n-form-section {
+		display: flex;
+		flex-flow: column nowrap;
+		@include media(">phone") {
+			flex-flow: row wrap;
+			justify-content: stretch;
+		}
+		.n-form-component {
+			flex: 1;
+			@include media("<=phone") {
+				margin-bottom: 1.5rem;
+				&.n-form-combo {
+					margin-bottom: 3rem;
+				}
+			}
+			.n-form-label {
+				display: block;
+				font-size: 0.8rem;
+				line-height: 1.125;
+				margin-bottom: 0.25rem;
+			}
+			input {
+				width: 100%;
+			}
+			.n-input-result {
+				display: none;
+			}
+			@include media(">phone") {
+				&:not(:last-child) {
+					margin-right: 1rem;
+				}
+			}
+		}
+	}
+	
+	// COMBO 
+	.n-input-combo .n-input-combo-input-container {
+		width: 100%;
+		.n-input-combo-dropdown {
+			@include box-shadow;
+			border: none;
+			top: calc(100% + 0.5rem);
+			.n-input-combo-dropdown-value.active {
+				background-color: $primary-color;
+				color: $primary-contrast;
+			}
+			li {
+				margin: 0.4rem;
+				padding: 0.2rem 0.4rem;
+				text-transform: capitalize;
+				&:hover {
+					background-color: $primary-color;
+					color: $primary-contrast;
+				}
+			}
+		}
+	}
+}

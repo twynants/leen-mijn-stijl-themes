@@ -1,0 +1,96 @@
+// ------------------- basics
+
+* {
+	box-sizing: border-box;
+}
+
+html:root {
+	font-size: 16px;
+	font-family: $font-family;
+}
+
+body {
+	background-color: $body-color;
+	color: $body-contrast;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	@include media("<=phone") {
+		min-height: 100vh;
+	}
+}
+
+@include media("<=phone") {
+	.page, .page .page-rows, .page .page-rows .page-row:not(.footer) {
+		min-height: 100vh;
+	}
+}
+
+[template].accent {
+	background-color: $alpha-accent-color;
+	min-height: 100vh;
+	width: 100%;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 2rem;
+	max-width: 64rem;
+	@include media("<=phone") {
+		padding: 0 1rem;
+		max-width: 100vw;
+	}
+	.subtitle {
+		color: $primary-color;
+		font-weight: 600;
+		margin-top: 1rem;
+		&.small {
+			font-size: 0.9em;
+		}
+	}
+}
+
+.fa {
+	&:before {
+		font-size: 14px;
+	}
+}
+
+.button {
+	display: inline-block;
+}
+
+button, .button {
+	// an icon is assumed on the left
+	.fa {
+		margin-right: 0.5rem;
+	}
+	&.has-icon-right {
+		.fa {
+			margin-left: 0.5rem;
+		}
+	}
+	&.has-icon, &.has-icon-left {
+		.fa {
+			margin-right: 0.5rem;
+		}
+	}
+}
+
+a {
+	font-weight: 600;
+	text-decoration: underline;
+	&.plain {
+		color: inherit;
+		font-weight: 400;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.subscript {
+	font-size: 0.8rem;
+	color: lighten($beta-contrast, 30%);
+}

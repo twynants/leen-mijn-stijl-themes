@@ -1,0 +1,124 @@
+$card-padding: 1rem !default;
+$card-color: $beta-color !default;
+$card-accent-color: $beta-accent-color !default;
+
+.card {
+	background-color: $card-color;
+	border: $border;
+	display: flex;
+	flex-flow: column nowrap;
+	margin: 0.5rem 0 1rem;
+	padding: $card-padding;
+	&.accent {
+		border: none;
+		background-color: $card-accent-color;
+	}
+	&.primary {
+		@extend .primary;
+	}
+	&.secondary {
+		@extend .secondary;
+	}
+	&.primary, &.secondary {
+		border: none;
+		box-shadow: $box-shadow-one;
+	}
+	&.active {
+		border: 2px solid $alpha-contrast;
+	}
+	&.has-heading {
+		padding: 0;
+		.heading {
+			align-items: center;
+			display: flex;
+			flex-flow: row nowrap;
+			padding: $card-padding;
+			width: 100%;
+			.subtitle {
+				margin: 0;
+			}
+		}
+		.content {
+			padding: $card-padding;
+			width: 100%;
+		}
+	}
+	.subtitle {
+		font-weight: 500;
+	}
+	.content {
+		align-items: center;
+		display: flex;
+		flex-flow: row nowrap;
+		&.properties {
+			align-items: normal;
+			flex-flow: column nowrap;
+			width: 100%;
+		}
+		.icon {
+			margin-right: 1rem;
+			&:before {
+				font-size: 2rem;
+			}
+		}
+		.property {
+			display: flex;
+			flex-flow: row nowrap;
+			margin: 0 0 1rem;
+			.key {
+				flex: 2;
+				margin-right: 0.5rem;
+			}
+			.value {
+				flex: 3;
+			}
+		}
+	}
+	.actions {
+		margin-left: auto;
+	}
+	.actions.actions-button {
+		background-color: $alpha-contrast;
+		color: $alpha-color;
+		font-weight: 600;
+		width: calc(100% + 2rem);
+		margin: 1rem -1rem -1rem;
+		padding: 1rem;
+		text-align: center;
+	}
+}
+
+.card.row, .card .content.row {
+	flex-direction: row !important;
+}
+.card.column, .card .content.column {
+	flex-direction: column !important;
+}
+
+
+@include media(">phone") {
+	.card {
+		align-items: center;
+// TODO - evaluate if this 'row' is needed. Could make things complex when they always switch from col->row when changed viewport dimensions
+		// flex-flow: row nowrap;
+		margin: 0.5rem 0 2rem;
+		.content {
+			flex: 1;
+			.property {
+				margin: 0 1rem 0 0;
+				.key, .value {
+// TODO - evaluate if this flex:none is needed.
+					// flex: none;
+				}
+			}
+		}
+		.actions.actions-button {
+			background-color: inherit;
+			color: inherit;
+			margin: 0;
+			margin-left: auto;
+			padding: 0;
+			width: auto;
+		}
+	}
+}
